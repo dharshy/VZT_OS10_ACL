@@ -1,0 +1,10 @@
+#ansible-master ansible_ssh_host =localhost
+#localhost
+#spine1 ansible_host=10.11.182.25
+leaf1 ansible_host=172.16.45.37
+
+[leaf]
+leaf1
+
+[datacenter:children]
+leaf

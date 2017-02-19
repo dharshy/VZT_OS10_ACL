@@ -1,0 +1,6 @@
+header_tmpl: |+
+  #Configured By Ansible
+
+ansible_ssh_user: linuxadmin
+ansible_ssh_pass: dellos10
+

@@ -1,0 +1,23 @@
+
+#- hosts: all
+#  tasks:
+#    - script: /Users/sankapr/Documents/test/library/nas_acl_simple_example.py
+---
+- hosts: all
+  #sudo: yes
+  
+
+
+  tasks:
+  - name: Your copy task
+    copy: src={{ item.src }} dest={{ item.dest }} owner=linuxadmin mode=755 force=yes
+    with_items:
+     - { src: 'library/nas_acl_simple_example.py', dest: '/home/linuxadmin/acl' }
+     - { src: 'library/nas_acl.py', dest: '/home/linuxadmin/acl' }
+ 
+  #- name: Copy file
+  #  copy: src=library/nas_acl_simple_example.py dest=/home/linuxadmin/acl owner=linuxadmin mode=755 force=yes
+  #  copy: src=library/nas_acl.py dest=/home/linuxadmin/acl owner=linuxadmin mode=755 force=yes
+  
+  - name: Execute script
+    command: /home/linuxadmin/acl/nas_acl_simple_example.py
